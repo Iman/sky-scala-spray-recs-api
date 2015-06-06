@@ -3,9 +3,10 @@
 Rest API created in Scala using Spray.io to accept request of following url: /personalised/{subscriber} (/personalised/foo123) where device is a url segment representing unique subscriber id Web service should use [Recs-Engine](https://github.com/Iman/sky-java-spring-recs-engine) to generate 5 recommendations (XML) and convert its result into json. Web service make 3 subsequent request for recommendations with 1 hour timeslots (starting from current hour) and use start/end request parameters to control that.
 
 [Recs-Engine](https://github.com/Iman/sky-java-spring-recs-engine) three times call examples with following parameters
-/recs/personalised?num=5&start=1415278800000&end=1415282400000&subscriber=foo123
-/recs/personalised?num=5&start=1415282400000&end=1415286000000&subscriber=foo123
-/recs/personalised?num=5&start=1415286000000&end=1415289600000&subscriber=foo123
+
+[http://localhost:8080/recs/personalised?num=5&start=1415278800000&end=1415282400000&subscriber=foo123](http://localhost:8080/recs/personalised?num=5&start=1415278800000&end=1415282400000&subscriber=foo123)
+[http://localhost:8080/recs/personalised?num=5&start=1415282400000&end=1415286000000&subscriber=foo123](http://localhost:8080/recs/personalised?num=5&start=1415282400000&end=1415286000000&subscriber=foo123)
+[http://localhost:8080/recs/personalised?num=5&start=1415282400000&end=1415286000000&subscriber=foo123](http://localhost:8080/recs/personalised?num=5&start=1415286000000&end=1415289600000&subscriber=foo123)
 
 ```json
 [

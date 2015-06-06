@@ -23,7 +23,6 @@ libraryDependencies ++= Seq(
   "org.mockito" % "mockito-core" % "1.8.5"
 )
 
-
 assemblySettings
 
 mainClass in assembly := Some("com.sky.assignment.Application")

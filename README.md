@@ -1,2 +1,103 @@
-# sky-scala-spray-recs-api
+# Sky Scala Spray.io Recs-api
 
+Rest API created in Scala using Spray.io to accept request of following url: /personalised/{subscriber} (/personalised/foo123) where device is a url segment representing unique subscriber id Web service should use [Recs-Engine](https://github.com/Iman/sky-java-spring-recs-engine) to generate 5 recommendations (XML) and convert its result into json. Web service make 3 subsequent request for recommendations with 1 hour timeslots (starting from current hour) and use start/end request parameters to control that.
+
+[Recs-Engine](https://github.com/Iman/sky-java-spring-recs-engine) three times call examples with following parameters
+/recs/personalised?num=5&start=1415278800000&end=1415282400000&subscriber=foo123
+/recs/personalised?num=5&start=1415282400000&end=1415286000000&subscriber=foo123
+/recs/personalised?num=5&start=1415286000000&end=1415289600000&subscriber=foo123
+
+```json
+[
+   {
+      "recommendations":[
+         {
+            "uuid":"ccc77d0b-b1fe-40d0-ba89-c4dfea585ad7",
+            "start":1433609704771,
+            "end":1433616364771
+         },
+         {
+            "uuid":"5e023767-b4fc-4fc5-aa82-d122f8cb1c86",
+            "start":1433617744816,
+            "end":1433623384816
+         },
+         {
+            "uuid":"b76bbf3b-9a5b-49f0-8fc6-03786f5f5065",
+            "start":1433635564816,
+            "end":1433641084816
+         },
+         {
+            "uuid":"09b3179a-6482-4d34-bfca-0077ac9c6151",
+            "start":1433631364816,
+            "end":1433636944816
+         },
+         {
+            "uuid":"7ce92a8a-e918-4115-aebe-d2eabe083439",
+            "start":1433609284816,
+            "end":1433615884816
+         }
+      ],
+      "expiry":1433626179933
+   },
+   {
+      "recommendations":[
+         {
+            "uuid":"ccc77d0b-b1fe-40d0-ba89-c4dfea585ad7",
+            "start":1433609704771,
+            "end":1433616364771
+         },
+         {
+            "uuid":"5e023767-b4fc-4fc5-aa82-d122f8cb1c86",
+            "start":1433617744816,
+            "end":1433623384816
+         },
+         {
+            "uuid":"b76bbf3b-9a5b-49f0-8fc6-03786f5f5065",
+            "start":1433635564816,
+            "end":1433641084816
+         },
+         {
+            "uuid":"09b3179a-6482-4d34-bfca-0077ac9c6151",
+            "start":1433631364816,
+            "end":1433636944816
+         },
+         {
+            "uuid":"7ce92a8a-e918-4115-aebe-d2eabe083439",
+            "start":1433609284816,
+            "end":1433615884816
+         }
+      ],
+      "expiry":1433629779949
+   },
+   {
+      "recommendations":[
+         {
+            "uuid":"ccc77d0b-b1fe-40d0-ba89-c4dfea585ad7",
+            "start":1433609704771,
+            "end":1433616364771
+         },
+         {
+            "uuid":"5e023767-b4fc-4fc5-aa82-d122f8cb1c86",
+            "start":1433617744816,
+            "end":1433623384816
+         },
+         {
+            "uuid":"b76bbf3b-9a5b-49f0-8fc6-03786f5f5065",
+            "start":1433635564816,
+            "end":1433641084816
+         },
+         {
+            "uuid":"09b3179a-6482-4d34-bfca-0077ac9c6151",
+            "start":1433631364816,
+            "end":1433636944816
+         },
+         {
+            "uuid":"7ce92a8a-e918-4115-aebe-d2eabe083439",
+            "start":1433609284816,
+            "end":1433615884816
+         }
+      ],
+      "expiry":1433633379965
+   }
+]
+```
